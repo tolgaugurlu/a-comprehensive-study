@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 5 : Project</title>
+  </head>
+  <body>
+        <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+          }
+
+          body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+          }
+
+          ul {
+            position: relative;
+            display: flex;
+            gap: 25px;
+          }
+
+          ul li {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 60px;
+            background: rgb(215, 209, 209);
+            box-shadow: 0 10px 25px rgb(0, 0, 0, 0.1);
+            transition: 0.5s;
+            cursor: pointer;
+          }
+
+          ul li:hover {
+            width: 180px;
+            box-shadow: 0 10px 25px rgb(0, 0, 0, 0);
+          }
+
+          ul li::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            border-radius: 60px;
+            transition: 0.5s;
+            background: linear-gradient(45deg, var(--i), var(--j));
+          }
+
+          ul li:hover::before {
+            opacity: 1;
+          }
+
+          ul li::after {
+            content: "";
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            height: 100%;
+            border-radius: 60px;
+            opacity: 0;
+            transition: 0.5s;
+            background: linear-gradient(45deg, var(--i), var(--j));
+            filter: blur(15px);
+            z-index: -1;
+          }
+
+          ul li:hover::after {
+            opacity: 0.5;
+          }
+
+          ul li ion-icon {
+            color: #777;
+            font-size: 1.2em;
+            transition: 0.5s;
+            transition-delay: 0.25s;
+          }
+
+          ul li:hover ion-icon {
+            color: #ffff;
+            font-size: 1.2em;
+            transform: scale(0);
+            transition-delay: 0s;
+          }
+
+          ul li span {
+            position: absolute;
+          }
+
+          ul li .title {
+            color: #ffff;
+            font-size: 0.7em;
+            text-transform: uppercase;
+            letter-spacing: 0, 6em;
+            transform: scale(0);
+            transition: 0.5s;
+            transition-delay: 0s;
+          }
+
+          ul li:hover .title {
+            transform: scale(1);
+            transition-delay: 0.25s;
+          }
+          
+          .text {
+            position: absolute;
+            display: inline-block;
+            
+            
+          }
+          
+          .text p {
+            color: #fff;
+            text-transform: uppercase;
+            font: 700 12vw 'Oswald';
+            letter-spacing: -5px;
+          }
+          
+          .collapsed {
+            
+            animation: beenThere 4000ms cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          }
+          
+          @keyframes beenThere {
+            0%   { transform: scale(1); opacity: 1;}
+            30%  { transform: scale(1); opacity: 1;}
+            35%  { transform: scale(3); opacity: 0;}
+            50%  { transform: scale(3); opacity: 0;}
+            65%  { transform: scale(3); opacity: 0;}
+            70%  { transform: scale(1); opacity: 1;}
+            100% { transform: scale(1); opacity: 1;}
+          }
+          
+          .expanded {
+            animation: doneThat 4000ms cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          }
+          
+          @keyframes doneThat {
+            0%   { transform: scale(3); opacity: 0;}
+            30%  { transform: scale(3); opacity: 0;}
+            35%  { transform: scale(1); opacity: 1;}
+            50%  { transform: scale(1); opacity: 1;}
+            65%  { transform: scale(1); opacity: 1;}
+            70%  { transform: scale(3); opacity: 0;}
+            100% { transform: scale(3); opacity: 0;}
+          }
+        </style>
+      </head>
+      <body>
+        <div class="text collapsed">
+          <p>Tolga</p>
+        </div>
+        <div class="text expanded">
+          <p>Uğurlu</p>
+        </div>
+        </div>
+        <ul>
+          <a href="https://tolgaugurlu.tech">
+            <li style="--i: #a955ff; --j: #ea51ff">
+              <span class="icon">
+                <ion-icon name="finger-print-outline"></ion-icon>
+              </span>
+              <span class="title">Ben Kimim?</span>
+            </li>
+          </a>
+          <a href="country_business.html">
+            <li style="--i: #56ccf2; --j: #2f80ed">
+              <span class="icon">
+                <ion-icon name="restaurant-outline"></ion-icon>
+              </span>
+              <span class="title">Ülkenin en iyi gıda firmaları</span>
+            </li>
+          </a>
+          <a href="feeling-test.html">
+            <li style="--i: #ff9966; --j: #ff5e62">
+              <span class="icon">
+                <ion-icon name="heart-outline"></ion-icon>
+              </span>
+              <span class="title">Nasılsın?</span>
+            </li>
+          </a>
+          <a href="contact.html">
+            <li style="--i: #7ee8fa; --j: #16db65">
+              <span class="icon">
+                <ion-icon name="call-outline"></ion-icon>
+              </span>
+              <span class="title">İletişim kurmak istiyorum</span>
+            </li>
+          </a>
+          <a href="login.html">
+            <li style="--i: #ffa9c6; --j: #f434e2">
+              <span class="icon">
+                <ion-icon name="accessibility-outline"></ion-icon>
+              </span>
+              <span class="title">Giriş Yap</span>
+            </li>
+          </a>
+        </ul>
+      </body>
+    </html>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

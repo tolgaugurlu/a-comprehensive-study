@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <title>İletişim - Tolga Uğurlu</title>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Oswald:400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body {
+  background: #f0f0f0;
+  font-family: Open Sans, sans-serif;
+  line-height: 1.5em;
+}
+#contact {
+  width: 500px;
+  margin: 2em auto;
+  background: white;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #000;
+}
+#contact::after {
+  content: "";
+  display: block;
+  height: 30px;
+  width: 90%;
+  left: 5%;
+  bottom: 0;
+  position: absolute;
+  -webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 100%;
+  z-index: -1;
+}
+#contact article {
+  padding: 1em;
+}
+#contact h1 {
+  background: #16db65;
+  font-family: Oswald, sans-serif;
+  font-size: 1.75em;
+  padding: 0.6em 0 0.6em 0.4em;
+  color: white;
+  text-shadow: 0 0.06em 0 #424242;
+  position: relative;
+  text-align: center;
+}
+.contactbutton {
+  background: #16db65;
+  -webkit-box-shadow: 1px 1px 0 0 #16db65, 2px 2px 0 0 #16db65,
+    3px 3px 0 0 #16db65;
+  box-shadow: 1px 1px 0 0 #16db65, 2px 2px 0 0 #16db65, 3px 3px 0 0 #16db65;
+  text-align: center;
+  display: block;
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+.contactbutton:hover {
+  -webkit-box-shadow: 1px 1px 0 0 #16db65, 0px 0px 0 0 #16db65,
+    0px 0px 0 0 #16db65;
+  box-shadow: 1px 1px 0 0 #16db65, 0px 0px 0 0 #16db65, 0px 0px 0 0 #832032;
+  margin-top: 22px;
+  margin-left: 2px;
+  margin-bottom: 0px;
+}
+.mail {
+  margin-top: 11px;
+  font-size: 15px;
+  display: inline-block;
+  border-top: 2em solid transparent;
+  border-left: 2.6em solid #434141;
+  height: 0;
+  width: 0;
+  position: relative;
+}
+.mail:before {
+  content: "";
+  top: -2.5em;
+  left: -2.95em;
+  display: block;
+  position: absolute;
+  border-top: 1.2em solid #434141;
+  border-left: 1.6em solid transparent;
+  border-right: 1.6em solid transparent;
+  border-bottom: 1em solid transparent;
+  font-size: 0.8em;
+}
+.mail::after {
+  display: block;
+  content: "";
+  position: absolute;
+  border-top: 2em solid transparent;
+  border-right: 2.6em solid #434141;
+  height: 0;
+  width: 0;
+  left: -2.18em;
+  bottom: 0;
+}
+#checkcontact {
+  position: absolute;
+  left: -9999px;
+}
+.contactform {
+  overflow: hidden;
+  max-height: 0px;
+  -webkit-transition: all linear 1s;
+  -moz-transition: all linear 1s;
+  -o-transition: all linear 1s;
+  -ms-transition: all linear 1s;
+  transition: all linear 1s;
+}
+#checkcontact:checked + .contactform {
+  max-height: 1000px;
+}
+.input_wrapper {
+  position: relative;
+}
+.textarea_wrapper textarea {
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  background: white;
+  border: 1px solid #dadada;
+  box-shadow: 0 0 1px 0 #e4e4e4;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 1em;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+  color: #5e5e5e;
+}
+.input_wrapper input[type="text"] {
+  margin-top: 1em;
+  display: block;
+  width: 100%;
+  background: white;
+  border: 1px solid #dadada;
+  box-shadow: 0 0 1px 0 #e4e4e4;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 1em;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+  color: #5e5e5e;
+  text-indent: 15%;
+}
+.input_wrapper input[type="text"]:focus {
+  background: rgba(242, 56, 90, 0.05);
+  box-shadow: inset 2px 2px 5px 0 #dadada;
+  outline: none;
+  text-indent: 0;
+}
+.input_wrapper label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #16db65;
+  color: white;
+  font-family: Oswald, sans-serif;
+  box-sizing: border-box;
+  width: 15%;
+  text-align: center;
+  line-height: 2.8em;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.input_wrapper input[type="text"]:focus + label {
+  left: 85%;
+}
+.textarea_wrapper textarea {
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  min-height: 150px;
+  background: white;
+  border: 1px solid #dadada;
+  box-shadow: 0 0 1px 0 #e4e4e4;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 1em;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+  color: #5e5e5e;
+}
+.textarea_wrapper textarea:focus {
+  background: rgba(242, 56, 90, 0.05);
+  box-shadow: inset 2px 2px 5px 0 #dadada;
+  outline: none;
+}
+.submit_wrapper {
+  text-align: center;
+}
+.submit_wrapper input {
+  text-align: center;
+  display: inline-block;
+  width: 40%;
+  height: 50px;
+  margin-top: 1em;
+  margin-bottom: 6px;
+  cursor: pointer;
+  background: #16db65;
+  color: white;
+  font-family: Oswald, sans-serif;
+  font-size: 1em;
+  border: none;
+  -webkit-box-shadow: 1px 1px 0 0 #16db65, 2px 2px 0 0 #16db65,
+    3px 3px 0 0 #16db65;
+  box-shadow: 1px 1px 0 0 #16db65, 2px 2px 0 0 #16db65, 3px 3px 0 0 #16db65;
+  -webkit-appearance: none;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.submit_wrapper input:hover {
+  -webkit-box-shadow: 1px 1px 0 0 #16db65, 0px 0px 0 0 #16db65,
+    0px 0px 0 0 #16db65;
+  box-shadow: 1px 1px 0 0 #16db65, 0px 0px 0 0 #16db65, 0px 0px 0 0 #16db65;
+  margin-top: 22px;
+  margin-left: 2px;
+  margin-bottom: 0px;
+}
+
+@media (max-width: 500px) {
+  #contact {
+    width: 100%;
+  }
+  .input_wrapper label {
+    line-height: 3.5em;
+    font-size: 0.8em;
+  }
+}
+/* Sosyal Medya icons */
+.social-media-list {
+  position: relative;
+  font-size: 22px;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.social-media-list li a {
+  color: #fff;
+}
+
+.social-media-list li {
+  position: relative;
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  margin: 10px 3px;
+  line-height: 60px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: rgb(27, 27, 27);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-media-list li:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 0 1px #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-media-list li:hover {
+  background-color: #fff;
+}
+
+.social-media-list li:hover:after {
+  opacity: 1;
+  transform: scale(1.12);
+  transition-timing-function: cubic-bezier(0.37, 0.74, 0.15, 1.65);
+}
+
+.social-media-list li:hover a {
+  color: #000;
+}
+
+hr {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+    </style>
+  </head>
+  <body>
+    <section id="contact">
+      <div class="sectionheader"><h1>İletişim</h1></div>
+      <article>
+        <p>
+            <hr />
+          <ul class="social-media-list">
+            <li>
+              <a href="https://github.com/tolgaugurlu" target="_blank" class="contact-icon">
+                <i class="fa-brands fa-github" aria-hidden="true"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://tolgaugurlu.tech" target="_blank" class="contact-icon">
+                <i class="fa-brands fa-internet-explorer" aria-hidden="true"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/Tolgaaugurlu" target="_blank" class="contact-icon">
+                <i class="fa-brands fa-twitter" aria-hidden="true"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/8one6two5th4fo2fv/" target="_blank" class="contact-icon">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i
+              ></a>
+            </li>
+          </ul>
+          <hr />
+          Merhaba, <br />
+          Eğer benimle iletişim kurmak istediysen. Yaptığım işlerden ve
+          yapabileceğim işlerden etkilendin demektir. Bu ve daha fazlası için
+          bana email atabilirsin.
+        </p>
+
+        <label for="checkcontact" class="contactbutton"
+          ><div class="mail"></div></label
+        ><input id="checkcontact" type="checkbox" />
+
+        <form action="" method="post" class="contactform">
+          <p class="input_wrapper">
+            <input
+              type="text"
+              name="contact_nom"
+              value=""
+              id="contact_nom"
+            /><label for="contact_nom">İsim</label>
+          </p>
+          <p class="input_wrapper">
+            <input
+              type="text"
+              name="contact_email"
+              value=""
+              id="contact_email"
+            /><label for="contact_email">Email</label>
+          </p>
+          <p class="input_wrapper">
+            <input
+              type="text"
+              name="contact_sujet"
+              value=""
+              id="contact_sujet"
+            /><label for="contact_sujet">Konu</label>
+          </p>
+          <p class="textarea_wrapper">
+            <textarea name="contact_message" id="contact_message"></textarea>
+          </p>
+          <p class="submit_wrapper"><input type="submit" value="Gönder" /></p>
+        </form>
+      </article>
+    </section>
+  </body>
+</html>
